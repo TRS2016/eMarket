@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <link href="monstyle.css" rel="stylesheet" type="text/css" />
+        <title>eMarket - Catalogue</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h1><h:outputText value="Catalogue" styleClass="text1"/></h1>
+            <h:form>
+                <ul>
+                    <li>
+                        <h:commandLink action="fromcatalog">
+                            <h:outputText value="Lien vers l'accueil"/>
+                        </h:commandLink>
+                    </li>
+                </ul>
+            </h:form>
+            <h:dataTable id="idTable" value="#{catalogManager.mylist}" var="item"
+                styleClass="people"
+                cellspacing="0"
+                cellpadding="5"
+                border="2"
+                rowClasses="odd, even"
+                columnClasses="ID,name,price">           
+                <h:column headerClass="first">
+                    <f:facet name="header">Identifiant</f:facet>
+                    <h:outputText value="#{item.ID}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nom</f:facet>
+                    <h:outputText value="#{item.name}" />
+                </h:column>
+                <h:column >
+                    <f:facet name="header">Prix</f:facet>
+                    <h:outputText value="#{item.price}" />
+                </h:column>  
+                <h:column headerClass="last">
+                    <f:facet name="header">ADD</f:facet>
+                    <h:form>
+                        <h:commandButton value=" + " action="#{shoppingCartManager.addToCart()}" >
+                            <f:setPropertyActionListener value="#{item}" target="#{shoppingCartManager.prodToAdd}" />
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </f:view>
+    </h:body>
+</html>

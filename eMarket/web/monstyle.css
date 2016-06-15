@@ -1,0 +1,18 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.text1 {
+    font-size: 22pt;
+    color: purple;
+    font-family: Arial Black, sans-serif;
+    border-bottom: 2px solid purple;
+}
+h1 {
+    font-size: 22pt;
+    color: purple;
+    font-family: Arial Black, sans-serif;
+    border-bottom: 2px solid purple;
+}
+
